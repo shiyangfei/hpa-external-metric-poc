@@ -1,5 +1,7 @@
 # K8S HPA Using External Metrics
 
+A POC repo to auto scale k8s pods based on an external metric `runtime.node.event_loop.delay.median`.
+
 ## Prerequisites
 1. Have docker & k8s running on local. [Guide](https://www.docker.com/blog/docker-mac-kubernetes/)
 
