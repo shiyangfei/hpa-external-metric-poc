@@ -17,5 +17,5 @@ kubectl apply -f manifests/hpa.yaml
 
 # build and deploy the testing node service
 docker build -t localhpatest .
-kubectl apply -f manifest.yml
+kubectl apply -f manifests/main-manifest.yml
 
