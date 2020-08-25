@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: datadog-cluster-agent-metrics-api
+  labels:
+    app: "datadog"
+    chart: "datadog-2.4.2"
+    release: "datadog"
+    heritage: "Helm"
+spec:
+  type: ClusterIP
+  selector:
+    app: datadog-cluster-agent
+  ports:
+    - port: 8443
+      name: metricsapi
+      protocol: TCP
+---
+apiVersion: apiregistration.k8s.io/v1
+kind: APIService
+metadata:
+  name: v1beta1.external.metrics.k8s.io
+  labels: {}
+spec:
+  service:
+    name: datadog-cluster-agent-metrics-api
+    namespace: default
+    port: 8443
+  version: v1beta1
+  insecureSkipTLSVerify: true
+  group: external.metrics.k8s.io
+  groupPriorityMinimum: 100
+  versionPriority: 100

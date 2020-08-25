@@ -1,0 +1,10 @@
+config:
+  target: 'http://localhost:30080'
+  phases:
+    - duration: 600
+      arrivalRate: 10
+scenarios:
+  - flow:
+    - get:
+        url: "/fetchremote"
+        # url: "/calc"

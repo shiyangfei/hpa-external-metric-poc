@@ -1,0 +1,17 @@
+scripts:
+  default:
+    script: nps build && kubectl apply -f manifest.yml
+  forward:
+    script: kubectl port-forward service/localhpatest 30080:8080
+  build:
+    script: docker build -t localhpatest .
+  dev:
+    script: node -r esm src/index.js
+  test:
+    script: artillery run loadtest.yml
+  restart:
+    script: nps delete && nps default
+  delete:
+    script: nps delete.deployment && nps delete.service
+    deployment: kubectl delete deployment localhpatest
+    service: kubectl delete svc localhpatest

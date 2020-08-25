@@ -1,0 +1,25 @@
+{
+  "name": "k8s",
+  "version": "1.0.0",
+  "description": "A test repo for k8s custom metrics auto-scaling",
+  "repository": "https://github.com/shiyangfei/k8s-test",
+  "main": "index.js",
+  "scripts": {
+    "start": "nps"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dd-trace": "^0.24.1",
+    "esm": "^3.2.25",
+    "koa": "^2.13.0",
+    "koa-router": "^9.4.0",
+    "log-timestamp": "^0.3.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "artillery": "^1.6.1",
+    "cli-sleep": "^1.0.1",
+    "nps": "^5.10.0"
+  }
+}
